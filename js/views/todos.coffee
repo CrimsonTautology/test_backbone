@@ -1,6 +1,6 @@
-app = app || {}
+window.app = window.app || {}
 
-class app.TodoView extends Backbone.View
+class window.app.TodoView extends Backbone.View
 
   tagName: 'li'
 
@@ -33,6 +33,7 @@ class app.TodoView extends Backbone.View
     this.$el.removeClass 'editing'
 
   updateOnEnter: (e) ->
-    if e.which == ENTER_KEY
+    if e.which == window.app.ENTER_KEY
       this.close()
 
+console.log window.app

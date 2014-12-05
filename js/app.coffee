@@ -1,7 +1,8 @@
-app = app || {}
-ENTER_KEY = 13
+window.app = window.app || {}
+window.app.ENTER_KEY = 13
 
 $ ->
 
+  console.log window.app
   #Kick things off by creating the App
-  new app.AppView()
+  new window.app.AppView()

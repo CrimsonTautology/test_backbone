@@ -1,6 +1,6 @@
-app = app || {}
+window.app = window.app || {}
 
-class app.Todo extends Backbone.Model
+class window.app.Todo extends Backbone.Model
 
   defaults:
     title: ''
@@ -10,3 +10,5 @@ class app.Todo extends Backbone.Model
   toggle: ->
     this.save
       completed: !this.get('completed')
+
+console.log window.app

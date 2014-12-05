@@ -1,7 +1,7 @@
-app = app || {}
+window.app = window.app || {}
 
-class app.TodoList extends Backbone.Collection
-  model: app.Todo
+class window.app.TodoList extends Backbone.Collection
+  model: window.app.Todo
 
   localStorage: new Backbone.LocalStorage('todos-backbone')
 
@@ -19,7 +19,8 @@ class app.TodoList extends Backbone.Collection
     this.last().get('order') + 1
 
   #Sort by insertion order
-  comparator: ->
+  comparator: (todo) ->
     todo.get('order')
 
-app.Todos = new app.TodoList
+window.app.Todos = new window.app.TodoList
+console.log window.app

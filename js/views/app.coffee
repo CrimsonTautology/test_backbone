@@ -1,6 +1,6 @@
-app = app | {}
+window.app = window.app || {}
 
-class app.AppView extends Backbone.View
+class window.app.AppView extends Backbone.View
   #Bind to existing skeleton
   el: '#todoapp'
 
@@ -19,20 +19,20 @@ class app.AppView extends Backbone.View
     this.$footer = this.$('#footer')
     this.$main = this.$('#main')
 
-    this.listenTo app.Todos, 'add', this.addOne
-    this.listenTo app.Todos, 'reset', this.addAll
+    this.listenTo window.app.Todos, 'add', this.addOne
+    this.listenTo window.app.Todos, 'reset', this.addAll
 
-    this.listenTo app.Todos, 'change:completed', this.filterOne
-    this.listenTo app.Todos, 'filter', this.filterAll
-    this.listenTo app.Todos, 'all', this.render
+    this.listenTo window.app.Todos, 'change:completed', this.filterOne
+    this.listenTo window.app.Todos, 'filter', this.filterAll
+    this.listenTo window.app.Todos, 'all', this.render
 
-    app.Todos.fetch()
+    window.app.Todos.fetch()
 
   render: ->
-    completed = app.Todos.completed().length
-    remaining = app.Todos.remaining().length
+    completed = window.app.Todos.completed().length
+    remaining = window.app.Todos.remaining().length
 
-    if app.Todos.length
+    if window.app.Todos.length
       this.$main.show()
       this.$footer.show()
 
@@ -42,7 +42,7 @@ class app.AppView extends Backbone.View
 
       this.$('#filters li a')
         .removeClass('selected')
-        .filter("[href='#/#{app.TodoFilter || ''}]'")
+        .filter("[href='#/#{window.app.TodoFilter || ''}']")
         .addClass('selected')
     else
       this.$main.hide()
@@ -53,38 +53,40 @@ class app.AppView extends Backbone.View
 
   #Add a single todo item to the list by creating a view for it and appending it to the <ul>
   addOne: (todo) ->
-    view = new app.TodoView( model: todo)
+    view = new window.app.TodoView( model: todo)
     $('#todo-list').append( view.render().el )
 
   #add all items in collection at once
   addAll: ->
     this.$('#todo-list').html('')
-    app.Todos.each this.addOne, this
+    window.app.Todos.each this.addOne, this
 
   filterOne: (todo) ->
     todo.trigger('visible')
 
   filterAll: ->
-    app.Todos.each this.filterOne, this
+    window.app.Todos.each this.filterOne, this
 
   newAttributes: ->
     {
       title: this.$input.val().trim()
-      order: app.Todos.nextOrder()
+      order: window.app.Todos.nextOrder()
       completed: false
     }
 
   createOnEnter: (event) ->
-    return if event.which != ENTER_KEY || !this.$input.val().trim()
+    return if event.which != window.app.ENTER_KEY || !this.$input.val().trim()
 
-    app.Todos.create this.newAttributes()
+    window.app.Todos.create this.newAttributes()
     this.$input.val('')
 
   clearCompleted: ->
-    _.invoke(app.Todos.completed(), 'destroy')
+    _.invoke(window.app.Todos.completed(), 'destroy')
     return false
 
   toggleAllCompleted: ->
     completed = this.allCheckbox.checked
-    app.Todos.each (todo) ->
+    window.app.Todos.each (todo) ->
       todo.save( 'completed': completed )
+
+console.log window.app
