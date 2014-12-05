@@ -1,0 +1,8 @@
+# Ignore vim locks
+.*.sw*
+*~
+.project
+.DB_Store
+bundler_stubs/
+tags
+
