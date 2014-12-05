@@ -110,6 +110,4 @@
 
   })(Backbone.View);
 
-  console.log(window.app);
-
 }).call(this);

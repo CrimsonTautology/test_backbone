@@ -43,6 +43,4 @@
 
   window.app.Todos = new window.app.TodoList;
 
-  console.log(window.app);
-
 }).call(this);

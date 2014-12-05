@@ -88,5 +88,3 @@ class window.app.AppView extends Backbone.View
     completed = this.allCheckbox.checked
     window.app.Todos.each (todo) ->
       todo.save( 'completed': completed )
-
-console.log window.app

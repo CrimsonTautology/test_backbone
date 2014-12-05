@@ -5,7 +5,6 @@
   window.app.ENTER_KEY = 13;
 
   $(function() {
-    console.log(window.app);
     return new window.app.AppView();
   });
 

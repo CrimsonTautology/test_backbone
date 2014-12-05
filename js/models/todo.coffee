@@ -10,5 +10,3 @@ class window.app.Todo extends Backbone.Model
   toggle: ->
     this.save
       completed: !this.get('completed')
-
-console.log window.app

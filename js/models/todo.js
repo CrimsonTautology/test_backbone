@@ -27,6 +27,4 @@
 
   })(Backbone.Model);
 
-  console.log(window.app);
-
 }).call(this);

@@ -23,4 +23,3 @@ class window.app.TodoList extends Backbone.Collection
     todo.get('order')
 
 window.app.Todos = new window.app.TodoList
-console.log window.app
