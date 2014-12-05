@@ -1,6 +1,6 @@
 app = app || {}
 
-class Todo extends Backbone.Model
+class app.Todo extends Backbone.Model
 
   defaults:
     title: ''

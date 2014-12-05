@@ -1,6 +1,6 @@
 app = app || {}
 
-class TodoView extends Backbone.View
+class app.TodoView extends Backbone.View
 
   tagName: 'li'
 

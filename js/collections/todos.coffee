@@ -1,6 +1,6 @@
 app = app || {}
 
-class TodoList extends Backbone.Collection
+class app.TodoList extends Backbone.Collection
   model: app.Todo
 
   localStorage: new Backbone.LocalStorage('todos-backbone')
@@ -22,4 +22,4 @@ class TodoList extends Backbone.Collection
   comparator: ->
     todo.get('order')
 
-app.Todos = new TodoList
+app.Todos = new app.TodoList

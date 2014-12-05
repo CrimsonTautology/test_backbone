@@ -1,6 +1,6 @@
 app = app | {}
 
-class AppView extends Backbone.View
+class app.AppView extends Backbone.View
   #Bind to existing skeleton
   el: '#todoapp'
 
